@@ -43,7 +43,7 @@ export class PlaylistService {
           childFriendly,
         })
       );
-
+      console.log('backendplaylist', backendPlaylist.spotifyPlaylistId);
       await this.updateTokens(
         backendPlaylist.spotifyPlaylistId,
         this.accessToken!,

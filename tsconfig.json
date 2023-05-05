@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["es6", "dom"],
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "commonjs",
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "paths": {
+      "frontend/*": ["frontend/*"],
+      "backend/*": ["backend/*"]
+    },
+    "types": ["cypress"]
+  },
+  "include": ["frontend/**/*.ts", "backend/**/*.ts", "cypress/**/*.ts"],
+  "exclude": ["node_modules"]
+}

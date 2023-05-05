@@ -26,7 +26,6 @@ export class PlaylistComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     const spotifyPlaylistId: any =
       this.route.snapshot.paramMap.get('spotifyPlaylistId');
-
     try {
       this.playlist = await this.playlistService.getPlaylistBySpotifyId(
         spotifyPlaylistId,
@@ -35,6 +34,8 @@ export class PlaylistComponent implements OnInit {
     } catch (error) {
       console.error('Error fetching playlist:', error);
     }
+    console.log(this.playlist);
+
     socket.on('voteCountUpdated', async ({ playlistId }) => {
       this.playlist = await this.playlistService.getPlaylistBySpotifyId(
         playlistId,

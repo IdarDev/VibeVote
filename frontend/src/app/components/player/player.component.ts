@@ -89,6 +89,10 @@ export class PlayerComponent implements OnInit {
   }
 
   private loadSpotifyPlayerScript(): Promise<void> {
+    (window as any).onSpotifyWebPlaybackSDKReady = () => {
+      console.log('Spotify Web Playback SDK is ready');
+    };
+
     return new Promise((resolve) => {
       if ((window as any).Spotify) {
         resolve();
@@ -99,7 +103,7 @@ export class PlayerComponent implements OnInit {
       script.src = 'https://sdk.scdn.co/spotify-player.js';
       script.type = 'text/javascript';
       script.async = true;
-      script.defer = true;
+      // script.defer = true;
       script.onload = () => {
         resolve();
       };
