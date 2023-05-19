@@ -115,9 +115,6 @@ export class PlayerService {
     spotifyPlaylistId: string,
     deviceId: string | null
   ): Promise<void> {
-    console.log(deviceId, 'deviceId');
-    console.log(spotifyPlaylistId, 'spotifyPlaylistId');
-
     try {
       let accessToken;
       accessToken = await this.authService.getAccessToken();

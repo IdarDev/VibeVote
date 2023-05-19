@@ -90,7 +90,6 @@ export class PlayerComponent implements OnInit {
 
   private loadSpotifyPlayerScript(): Promise<void> {
     (window as any).onSpotifyWebPlaybackSDKReady = () => {
-      console.log('Spotify Web Playback SDK is ready');
     };
 
     return new Promise((resolve) => {

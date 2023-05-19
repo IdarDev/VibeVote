@@ -22,7 +22,7 @@ describe('Presentation', () => {
     cy.get('button').contains('Add track').click();
     cy.get('input[placeholder="Search track"]').type('friday');
     cy.contains('div', 'Rebecca').click();
-    cy.wait(3000);
+    //   cy.wait(3000);
     cy.get('div.flex.items-center.justify-between.p-2')
       .contains('Rebecca Black')
       .parent()

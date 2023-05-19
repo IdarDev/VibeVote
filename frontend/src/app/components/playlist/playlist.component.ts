@@ -34,7 +34,6 @@ export class PlaylistComponent implements OnInit {
     } catch (error) {
       console.error('Error fetching playlist:', error);
     }
-    console.log(this.playlist);
 
     socket.on('voteCountUpdated', async ({ playlistId }) => {
       this.playlist = await this.playlistService.getPlaylistBySpotifyId(
