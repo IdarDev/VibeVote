@@ -4,7 +4,7 @@ import { firstValueFrom } from 'rxjs';
 import { getGuestId } from '../utils/guest';
 import { AuthService } from './auth.service';
 
-const URL = 'https://vibevote.fly.dev';
+const URL = 'https://vibevote-server.fly.dev';
 
 const spotifyApiUrl = 'https://api.spotify.com/v1';
 
