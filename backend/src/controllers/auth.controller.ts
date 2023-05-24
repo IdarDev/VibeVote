@@ -5,7 +5,7 @@ const getAuthTokens = (req: any, res: any) => {
   const { accessToken, refreshToken, expires_in }: any = req.user;
 
   res.redirect(
-    `http://localhost:4200/home?accessToken=${accessToken}&refreshToken=${refreshToken}&expiresIn=${expires_in}`
+    `https://vibevote.netlify.app/home?accessToken=${accessToken}&refreshToken=${refreshToken}&expiresIn=${expires_in}`
   );
 };
 

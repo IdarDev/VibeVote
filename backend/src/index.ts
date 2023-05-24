@@ -16,7 +16,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 //Enable CORS
-app.use(cors({ origin: 'http://localhost:4200', credentials: true }));
+app.use(cors({ origin: 'https://vibevote.netlify.app/', credentials: true }));
 app.use(express.json());
 
 //Set up session middleware
@@ -55,7 +55,7 @@ app.get(
   '/auth/spotify/callback',
   passport.authenticate('spotify', { failureRedirect: '/auth/spotify' }),
   (req, res) => {
-    res.redirect(`http://localhost:4200/home?code=${req.query.code}`);
+    res.redirect(`https://vibevote.netlify.app/home?code=${req.query.code}`);
   }
 );
 
@@ -63,7 +63,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: 'http://localhost:4200',
+    origin: 'https://vibevote.netlify.app/',
   },
 });
 
