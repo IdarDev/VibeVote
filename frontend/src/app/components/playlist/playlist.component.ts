@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { PlaylistService } from 'src/app/services/playlist.service';
 import { AddTrackComponent } from '../add-track/add-track.component';
 import io from 'socket.io-client';
-const socket = io('https://vibevote-server.fly.dev');
+const socket = io('https://vibevote-server.fly.dev:3000');
 
 @Component({
   selector: 'app-playlist',
