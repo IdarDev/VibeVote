@@ -9,7 +9,7 @@ export class AuthService {
   private accessToken: string | null = null;
   private refreshToken: string | null = null;
   private expirationTime: number | null = null;
-  URL = 'http://localhost:3000';
+  URL = 'https://vibevote.fly.dev';
 
   constructor(private http: HttpClient, private route: ActivatedRoute) {
     this.route.queryParams.subscribe((params) => {
@@ -45,7 +45,7 @@ export class AuthService {
     const scope =
       'user-read-email user-read-private playlist-modify-private playlist-modify-public user-read-playback-state streaming';
     const responseType = 'code';
-    const authUrl = `http://localhost:3000/auth/spotify?scope=${scope}&response_type=${responseType}`;
+    const authUrl = `https://vibevote.fly.dev/auth/spotify?scope=${scope}&response_type=${responseType}`;
     window.location.href = authUrl;
   }
 
@@ -80,7 +80,7 @@ export class AuthService {
     try {
       const token = refreshToken || this.getRefreshToken();
       const response: any = await this.http
-        .post(`http://localhost:3000/auth/refresh`, { refreshToken: token })
+        .post(`https://vibevote.fly.dev/auth/refresh`, { refreshToken: token })
         .toPromise();
 
       const newAccessToken = response['access_token'];

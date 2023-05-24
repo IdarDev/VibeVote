@@ -2,7 +2,7 @@ import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
 import { PlayerService } from 'src/app/services/player.service';
 import { io } from 'socket.io-client';
 
-const socket = io('http://localhost:3000');
+const socket = io('https://vibevote.fly.dev');
 
 @Component({
   selector: 'app-spotify-player',
@@ -89,8 +89,7 @@ export class PlayerComponent implements OnInit {
   }
 
   private loadSpotifyPlayerScript(): Promise<void> {
-    (window as any).onSpotifyWebPlaybackSDKReady = () => {
-    };
+    (window as any).onSpotifyWebPlaybackSDKReady = () => {};
 
     return new Promise((resolve) => {
       if ((window as any).Spotify) {
