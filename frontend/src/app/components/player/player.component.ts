@@ -2,7 +2,7 @@ import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
 import { PlayerService } from 'src/app/services/player.service';
 import { io } from 'socket.io-client';
 
-const socket = io('https://vibevote-server.fly.dev:3000');
+const socket = io('https://vibevote-server.fly.dev');
 
 @Component({
   selector: 'app-spotify-player',
