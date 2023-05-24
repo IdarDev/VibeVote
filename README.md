@@ -11,7 +11,7 @@ The host requires a Spotify Premium account. Guests can join without logging in!
 
 ## Screenshots
 <div style="display: flex; justify-content: space-between;">
-<img src="https://i.ibb.co/kBLMRpD/vibevote-desktop.png" style="width: 70%;">
+<img src="https://i.ibb.co/kBLMRpD/vibevote-desktop.png" style="width: 70%;">          
 <img src="https://i.ibb.co/3FXKXMH/vibevote-phone.png" style="width: 20%;">
 </div>
 
