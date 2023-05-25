@@ -1,8 +1,9 @@
 import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
 import { PlayerService } from 'src/app/services/player.service';
 import { io } from 'socket.io-client';
+import BASE_URL from '../../utils/baseUrl';
 
-const socket = io('https://vibevote.herokuapp.com');
+const socket = io(BASE_URL);
 
 @Component({
   selector: 'app-spotify-player',

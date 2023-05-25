@@ -3,7 +3,9 @@ import { ActivatedRoute } from '@angular/router';
 import { PlaylistService } from 'src/app/services/playlist.service';
 import { AddTrackComponent } from '../add-track/add-track.component';
 import io from 'socket.io-client';
-const socket = io('https://vibevote.herokuapp.com');
+import BASE_URL from 'src/app/utils/baseUrl';
+
+const socket = io(BASE_URL);
 
 @Component({
   selector: 'app-playlist',

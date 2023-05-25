@@ -1,11 +1,13 @@
 import '../config/passport';
 import spotifyApi from '../config/spotify';
 
+const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:4200';
+
 const getAuthTokens = (req: any, res: any) => {
   const { accessToken, refreshToken, expires_in }: any = req.user;
 
   res.redirect(
-    `https://vibevote.netlify.app/home?accessToken=${accessToken}&refreshToken=${refreshToken}&expiresIn=${expires_in}`
+    `${frontendUrl}/home?accessToken=${accessToken}&refreshToken=${refreshToken}&expiresIn=${expires_in}`
   );
 };
 

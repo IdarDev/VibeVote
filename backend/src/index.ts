@@ -14,6 +14,7 @@ import authRoutes from './routes/auth';
 
 const app = express();
 const port = process.env.PORT || 3000;
+const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:4200';
 
 //Enable CORS
 app.use(cors({ origin: '*', credentials: true }));
@@ -55,7 +56,7 @@ app.get(
   '/auth/spotify/callback',
   passport.authenticate('spotify', { failureRedirect: '/auth/spotify' }),
   (req, res) => {
-    res.redirect(`https://vibevote.netlify.app/home?code=${req.query.code}`);
+    res.redirect(`${frontendUrl}/home?code=${req.query.code}`);
   }
 );
 

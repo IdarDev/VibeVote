@@ -3,8 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
 import { getGuestId } from '../utils/guest';
 import { AuthService } from './auth.service';
-
-const URL = 'https://vibevote.herokuapp.com';
+import BASE_URL from '../utils/baseUrl';
 
 const spotifyApiUrl = 'https://api.spotify.com/v1';
 
@@ -37,7 +36,7 @@ export class PlaylistService {
       );
 
       const backendPlaylist: any = await firstValueFrom(
-        this.http.post(`${URL}/api/playlist/create`, {
+        this.http.post(`${BASE_URL}/api/playlist/create`, {
           title,
           spotifyPlaylistId: spotifyPlaylist?.id,
           childFriendly,
@@ -89,7 +88,9 @@ export class PlaylistService {
       }
 
       return await firstValueFrom(
-        this.http.get<any>(`${URL}/api/playlist/${playlistId}${queryParams}`)
+        this.http.get<any>(
+          `${BASE_URL}/api/playlist/${playlistId}${queryParams}`
+        )
       );
     } catch (error) {
       console.error('Failed to get playlist by Spotify ID', error);
@@ -115,10 +116,13 @@ export class PlaylistService {
       const spotifyPlaylistId = spotifyPlaylist.spotifyPlaylistId;
 
       await firstValueFrom(
-        this.http.post(`${URL}/api/playlist/${spotifyPlaylistId}/add-track`, {
-          trackId,
-          accessToken,
-        })
+        this.http.post(
+          `${BASE_URL}/api/playlist/${spotifyPlaylistId}/add-track`,
+          {
+            trackId,
+            accessToken,
+          }
+        )
       );
     } catch (error) {
       console.error('Failed to add track to playlist', error);
@@ -134,7 +138,7 @@ export class PlaylistService {
     try {
       const guestId = getGuestId();
       await firstValueFrom(
-        this.http.post(`${URL}/api/playlist/${playlistId}/vote`, {
+        this.http.post(`${BASE_URL}/api/playlist/${playlistId}/vote`, {
           trackId,
           guestId,
           spotifyId,
@@ -155,7 +159,7 @@ export class PlaylistService {
       const guestId = getGuestId();
 
       await firstValueFrom(
-        this.http.post(`${URL}/api/playlist/${playlistId}/vote`, {
+        this.http.post(`${BASE_URL}/api/playlist/${playlistId}/vote`, {
           trackId,
           guestId,
           spotifyId,
@@ -175,7 +179,7 @@ export class PlaylistService {
   ): Promise<void> {
     try {
       await firstValueFrom(
-        this.http.put(`${URL}/api/playlist/${playlistId}/tokens`, {
+        this.http.put(`${BASE_URL}/api/playlist/${playlistId}/tokens`, {
           accessToken,
           refreshToken,
           expiresIn,
@@ -191,7 +195,7 @@ export class PlaylistService {
   ): Promise<{ accessToken: string; refreshToken: string; expiresIn: number }> {
     try {
       const response: any = await firstValueFrom(
-        this.http.get(`${URL}/api/playlist/${playlistId}/tokens`)
+        this.http.get(`${BASE_URL}/api/playlist/${playlistId}/tokens`)
       );
 
       const expiresIn = response.spotifyTokenExpiresAt
@@ -337,7 +341,7 @@ export class PlaylistService {
     try {
       return await firstValueFrom(
         this.http.put(
-          `${URL}/api/playlist/${playlistId}/update-track-played-status/${trackId}`,
+          `${BASE_URL}/api/playlist/${playlistId}/update-track-played-status/${trackId}`,
           { played }
         )
       );
