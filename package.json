@@ -10,5 +10,8 @@
   },
   "dependencies": {
     "cypress": "^12.11.0"
+  },
+  "scripts": {
+    "heroku-push": "git subtree push --prefix backend heroku main"
   }
 }
